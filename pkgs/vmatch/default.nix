@@ -2,12 +2,14 @@
 
 buildGoModule {
   pname = "vmatch";
-  version = "1.0.25";
+  version = "1.0.27";
+
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "vmatch";
-    rev = "a2f740e34357734a92488dd091240b47227b8096";
-    hash = "sha256-YXCkg0Hm041g/IhN0tD25NrZH7aOL5j6SYLv5fK0KV8=";
+    rev = "78ae6d0301e00201fb42c5f432ec2740c9ed1047";
+    hash = "sha256-aypXfXZZIxtgpMUm/ta+AdwIm+OQ6jDLPANcVR4NK8Y=";
   };
+
   vendorHash = null;
 }
