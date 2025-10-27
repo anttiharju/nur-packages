@@ -7,7 +7,6 @@
    * Library functions, modules and overlays go in the respective directories
 3. Setup CI
    - Github actions: Add a cachix name in [.github/workflows/build.yml](./.github/workflows/build.yml)
-5. Change your cachix names on the README template section
 6. [Add yourself to NUR](https://github.com/nix-community/NUR#how-to-add-your-own-repository)
 
 ## README template
