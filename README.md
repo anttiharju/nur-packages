@@ -6,7 +6,7 @@
      attribute, or travis (and consequently caching) will fail!
    * Library functions, modules and overlays go in the respective directories
 3. Setup CI
-   - Github actions: Change your NUR repo name and optionally add a cachix name in [.github/workflows/build.yml](./.github/workflows/build.yml) and change the cron timer to a random value as described in the file
+   - Github actions: Add a cachix name in [.github/workflows/build.yml](./.github/workflows/build.yml)
 5. Change your cachix names on the README template section
 6. [Add yourself to NUR](https://github.com/nix-community/NUR#how-to-add-your-own-repository)
 
