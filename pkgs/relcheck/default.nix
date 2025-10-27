@@ -2,14 +2,22 @@
 
 buildGoModule {
   pname = "relcheck";
-  version = "1.8.2";
+  version = "1.8.3";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "relcheck";
-    rev = "c6fd1019d875fdd415ce0bc10ec5a6261b696ee5";
-    hash = "sha256-Q7e9EaBaW+G8UUDVPvDHq1DOqQLn57l+hondjRKg6EI=";
+    rev = "d35bf38c9438899f6edfd5460ab4ede7911ac89e";
+    hash = "sha256-5IZQlmZ+8BRUuXasuYOG6C+HA26u8rNyJyFa4B/pOOA=";
   };
+
+  ldflags = [
+    "-s"
+    "-w"
+    "-X main.revision=d35bf38c9438899f6edfd5460ab4ede7911ac89e"
+    "-X main.version=1.8.3"
+    "-X main.time=2025-10-27T19:56:54Z"
+  ];
 
   vendorHash = null;
 }
