@@ -29,7 +29,7 @@ jobs:
         # For this to work, you also need to set the CACHIX_SIGNING_KEY or
         # CACHIX_AUTH_TOKEN secret in your repository secrets settings in
         # Github found at
-        # https://github.com/<your_githubname>/nur-packages/settings/secrets
+        # https://github.com/anttiharju/nur-packages/settings/secrets
         cachixName:
           - <YOUR_CACHIX_NAME>
         nixPath:
