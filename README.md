@@ -18,5 +18,5 @@
 
 ![Build and populate cache](https://github.com/anttiharju/nur-packages/workflows/Build%20and%20populate%20cache/badge.svg)
 
-[![Cachix Cache](https://img.shields.io/badge/cachix-<YOUR_CACHIX_CACHE_NAME>-blue.svg)](https://<YOUR_CACHIX_CACHE_NAME>.cachix.org)
+[![Cachix Cache](https://img.shields.io/badge/cachix-anttiharju-blue.svg)](https://anttiharju.cachix.org)
 
