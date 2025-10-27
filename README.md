@@ -1,7 +1,3 @@
-# nur-packages-template
-
-**A template for [NUR](https://github.com/nix-community/NUR) repositories**
-
 ## Setup
 
 1. Click on [Use this template](https://github.com/nix-community/nur-packages-template/generate) to start a repo based on this template. (Do _not_ fork it.)
