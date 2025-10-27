@@ -14,5 +14,6 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  relcheck = pkgs.callPackage ./pkgs/relcheck { };
   vmatch = pkgs.callPackage ./pkgs/vmatch { };
 }
