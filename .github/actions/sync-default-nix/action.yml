@@ -1,0 +1,9 @@
+name: "Sync default.nix"
+description: "Ensure that the list of packages in default.nix is up to date"
+runs:
+  using: "composite"
+  steps:
+    - name: Update default.nix
+      shell: sh
+      run: |
+        "$GITHUB_ACTION_PATH/action.bash"
