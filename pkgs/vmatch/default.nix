@@ -2,21 +2,21 @@
 
 buildGoModule {
   pname = "vmatch";
-  version = "1.0.45";
+  version = "1.0.46";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "vmatch";
-    rev = "e8ec3e6c0f0442fb3d6ce9925b15adb59db4e844";
-    hash = "sha256-2HYvypi8Wo0660AWriexZm8h9dyJSMTb08nOSAE0pOY=";
+    rev = "66cd2a3c3bbaf51ed44d397dc9f4ff9a272764a7";
+    hash = "sha256-msfEDXe33pG4kfTPn7X69HpEdgHTppsr76vF5xMn00w=";
   };
 
   ldflags = [
     "-s"
     "-w"
-    "-X main.revision=e8ec3e6c0f0442fb3d6ce9925b15adb59db4e844"
-    "-X main.version=1.0.45"
-    "-X main.time=2025-10-28T16:43:18Z"
+    "-X main.revision=66cd2a3c3bbaf51ed44d397dc9f4ff9a272764a7"
+    "-X main.version=1.0.46"
+    "-X main.time=2025-10-31T11:05:35Z"
   ];
 
   vendorHash = null;
