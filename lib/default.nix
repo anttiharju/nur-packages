@@ -1,7 +1,14 @@
 { pkgs }:
 
-with pkgs.lib; {
-  # Add your library functions here
-  #
-  # hexint = x: hexvals.${toLower x};
+with pkgs.lib;
+{
+  licenses = pkgs.lib.licenses;
+  maintainers = pkgs.lib.maintainers // {
+    anttiharju = {
+      email = "antti@harju.io";
+      github = "anttiharju";
+      githubId = 61745723;
+      name = "Antti Harju";
+    };
+  };
 }
