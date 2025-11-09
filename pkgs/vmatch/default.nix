@@ -1,23 +1,37 @@
-{ buildGoModule, fetchFromGitHub }:
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
+}:
 
-buildGoModule {
+buildGoModule rec {
   pname = "vmatch";
-  version = "1.0.50";
+  version = "1.0.51";
+  revision = "b9c49546dcb682a1b493f0738b41211ca7c11bee";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "vmatch";
-    rev = "f8b624ea829bf0c47a108ca6dab06bc9c6374ec7";
-    hash = "sha256-upjmBIConAK4luN1OIQ+9aK8dffsA9Y72PAxZ1qJVt4=";
+    rev = revision;
+    hash = "sha256-LhnPQbK17mclwVbzx2rQmPxC24/51zshejGfUDCkbAU=";
   };
+
+  vendorHash = null;
 
   ldflags = [
     "-s"
     "-w"
-    "-X main.revision=f8b624ea829bf0c47a108ca6dab06bc9c6374ec7"
-    "-X main.version=1.0.50"
-    "-X main.time=2025-11-08T14:05:14Z"
+    "-X main.revision=${revision}"
+    "-X main.version=${version}"
+    "-X main.time=2025-11-09T12:51:17Z"
   ];
 
-  vendorHash = null;
+  meta = {
+    homepage = "https://anttiharju.dev/vmatch/";
+    description = "Go and golangci-lint automation";
+    changelog = "https://github.com/anttiharju/vmatch/releases/tag/v${version}";
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ anttiharju ];
+    mainProgram = "vmatch";
+  };
 }
