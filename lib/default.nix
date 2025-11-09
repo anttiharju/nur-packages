@@ -1,8 +1,6 @@
 { pkgs }:
 
-with pkgs.lib;
-{
-  licenses = pkgs.lib.licenses;
+pkgs.lib // {
   maintainers = pkgs.lib.maintainers // {
     anttiharju = {
       email = "antti@harju.io";
