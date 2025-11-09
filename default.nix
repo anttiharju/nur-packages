@@ -8,12 +8,14 @@
 
 { pkgs ? import <nixpkgs> { } }:
 
+let
+  lib = import ./lib { inherit pkgs; };
+in
 {
-  # The `lib`, `modules`, and `overlays` names are special
-  lib = import ./lib { inherit pkgs; }; # functions
+  lib = lib;
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  relcheck = pkgs.callPackage ./pkgs/relcheck { };
+  relcheck = pkgs.callPackage ./pkgs/relcheck { inherit lib; };
   vmatch = pkgs.callPackage ./pkgs/vmatch { };
 }
