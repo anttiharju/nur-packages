@@ -17,5 +17,5 @@ in
   overlays = import ./overlays; # nixpkgs overlays
 
   relcheck = pkgs.callPackage ./pkgs/relcheck { inherit lib; };
-  vmatch = pkgs.callPackage ./pkgs/vmatch { };
+  vmatch = pkgs.callPackage ./pkgs/vmatch { inherit lib; };
 }
