@@ -8,14 +8,14 @@
 
 buildGoModule rec {
   pname = "relcheck";
-  version = "1.8.11";
-  revision = "eeac7b40f9f40b8ff5efb7c1b63ffd6ffb9f24cc";
+  version = "1.8.12";
+  revision = "08e4c78ce043e149a546dc286ee216fde27289bb";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "relcheck";
     rev = revision;
-    hash = "sha256-vWNIQvSz1tAXTS/WnKQo9nxXquOiKqgzsXLKY1W6FZw=";
+    hash = "sha256-mEPUtkOihRehaMg+qKSlmtFEmcHEacLvPt2ne0GZjDg=";
   };
 
   vendorHash = null;
@@ -23,7 +23,7 @@ buildGoModule rec {
   nativeBuildInputs = [ makeWrapper ];
 
   postInstall = ''
-    wrapProgram "$out/bin/${pname}" \
+    wrapProgram "$out/bin/relcheck" \
       --prefix PATH : ${lib.makeBinPath [ git ]}
   '';
 
@@ -32,7 +32,7 @@ buildGoModule rec {
     "-w"
     "-X main.revision=${revision}"
     "-X main.version=${version}"
-    "-X main.time=2025-11-09T12:24:21Z"
+    "-X main.time=2025-11-09T12:47:32Z"
   ];
 
   meta = {
