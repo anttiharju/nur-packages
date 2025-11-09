@@ -1,24 +1,35 @@
-{ buildGoModule, fetchFromGitHub, git }:
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
+  git,
+  makeWrapper,
+}:
 
 buildGoModule {
   pname = "relcheck";
-  version = "1.8.8";
+  version = "1.8.10";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "relcheck";
-    rev = "1e5ce0de0faa8b1a99d58d3ffc6a2c2f6eac6009";
-    hash = "sha256-UolI2pJAjwZFmlcnEh2Uml76EVezKx5UluYP3n9xSh8=";
+    rev = "577869c491fb851776fdc8e07f1bffb6e246b8ce";
+    hash = "sha256-oZcWaKjfWzPYgyxYpn0d0MIa6733z6E6Z30UPfmKOGU=";
   };
 
-  buildInputs = [ git ];
+  nativeBuildInputs = [ makeWrapper ];
+
+  postInstall = ''
+    wrapProgram "$out/bin/relcheck" \
+      --prefix PATH : ${lib.makeBinPath [ git ]}
+  '';
 
   ldflags = [
     "-s"
     "-w"
-    "-X main.revision=1e5ce0de0faa8b1a99d58d3ffc6a2c2f6eac6009"
-    "-X main.version=1.8.8"
-    "-X main.time=2025-11-08T15:38:18Z"
+    "-X main.revision=577869c491fb851776fdc8e07f1bffb6e246b8ce"
+    "-X main.version=1.8.10"
+    "-X main.time=2025-11-09T11:21:12Z"
   ];
 
   vendorHash = null;
