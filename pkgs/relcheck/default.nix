@@ -6,31 +6,41 @@
   makeWrapper,
 }:
 
-buildGoModule {
+buildGoModule rec {
   pname = "relcheck";
-  version = "1.8.10";
+  version = "1.8.11";
+  revision = "eeac7b40f9f40b8ff5efb7c1b63ffd6ffb9f24cc";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "relcheck";
-    rev = "577869c491fb851776fdc8e07f1bffb6e246b8ce";
-    hash = "sha256-oZcWaKjfWzPYgyxYpn0d0MIa6733z6E6Z30UPfmKOGU=";
+    rev = revision;
+    hash = "sha256-vWNIQvSz1tAXTS/WnKQo9nxXquOiKqgzsXLKY1W6FZw=";
   };
+
+  vendorHash = null;
 
   nativeBuildInputs = [ makeWrapper ];
 
   postInstall = ''
-    wrapProgram "$out/bin/relcheck" \
+    wrapProgram "$out/bin/${pname}" \
       --prefix PATH : ${lib.makeBinPath [ git ]}
   '';
 
   ldflags = [
     "-s"
     "-w"
-    "-X main.revision=577869c491fb851776fdc8e07f1bffb6e246b8ce"
-    "-X main.version=1.8.10"
-    "-X main.time=2025-11-09T11:21:12Z"
+    "-X main.revision=${revision}"
+    "-X main.version=${version}"
+    "-X main.time=2025-11-09T12:24:21Z"
   ];
 
-  vendorHash = null;
+  meta = {
+    homepage = "https://anttiharju.dev/relcheck/";
+    description = "Performant relative link checker";
+    changelog = "https://github.com/anttiharju/relcheck/releases/tag/v${version}";
+    license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ anttiharju ];
+    mainProgram = "relcheck";
+  };
 }
