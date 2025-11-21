@@ -8,14 +8,14 @@
 
 buildGoModule rec {
   pname = "relcheck";
-  version = "1.8.12";
-  revision = "08e4c78ce043e149a546dc286ee216fde27289bb";
+  version = "1.8.13";
+  revision = "b2ff946e92824dc74abe3a1d6ae209a4e78d63ef";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "relcheck";
     rev = revision;
-    hash = "sha256-mEPUtkOihRehaMg+qKSlmtFEmcHEacLvPt2ne0GZjDg=";
+    hash = "sha256-aDyMItig1hiJFyi8Vtv31s2dc59bKF6Q6nvtfI7Jkbw=";
   };
 
   vendorHash = null;
@@ -32,11 +32,11 @@ buildGoModule rec {
     "-w"
     "-X main.revision=${revision}"
     "-X main.version=${version}"
-    "-X main.time=2025-11-09T12:47:32Z"
+    "-X main.time=2025-11-21T14:20:40Z"
   ];
 
   meta = {
-    homepage = "https://anttiharju.dev/relcheck/";
+    homepage = "https://anttiharju.dev/relcheck";
     description = "Performant relative link checker";
     changelog = "https://github.com/anttiharju/relcheck/releases/tag/v${version}";
     license = lib.licenses.mit;
