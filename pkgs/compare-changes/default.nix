@@ -7,22 +7,22 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "compare-changes";
-  version = "0.1.1";
-  revision = "2eae54ea003c479ba360245c29078b769c0125de";
+  version = "0.1.2";
+  revision = "128e9d6f36b674c7b837393e07acb79f7be498da";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "compare-changes";
     rev = revision;
-    hash = "sha256-RTaK3jjgidXSzUDaK7low9e9EnL11DDh+v7vfcbR5GM=";
+    hash = "sha256-XqIlaIPenKrnqUBJAFbO7RXGrWWNzSFJ7gSWxtFMNQI=";
   };
 
   cargoLock = {
-    lockFile = "./Cargo.lock";
+    lockFile = ./Cargo.lock;
   };
 
   meta = {
-    homepage = "http://anttiharju.dev/compare-changes";
+    homepage = "http://anttiharju.dev/compare-changes/";
     description = "WIP";
     changelog = "https://github.com/anttiharju/compare-changes/releases/tag/v${version}";
     license = lib.licenses.mit;
