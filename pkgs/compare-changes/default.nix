@@ -5,7 +5,7 @@
   nix-update-script,
 }:
 
-rustPlatform.buildRustPackage (finalAttrs: {
+rustPlatform.buildRustPackage rec {
   pname = "compare-changes";
   version = "0.1.0";
   revision = "3b25ae9d3a529ecaac5c2d67e627279647704b29";
@@ -25,4 +25,4 @@ rustPlatform.buildRustPackage (finalAttrs: {
     maintainers = with lib.maintainers; [ anttiharju ];
     mainProgram = "compare-changes";
   };
-})
+}
