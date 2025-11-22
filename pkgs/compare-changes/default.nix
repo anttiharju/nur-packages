@@ -17,6 +17,8 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-R49g5w3Z5muAsbE45eFlZ4gf7T6aogU0n1d2ptLaxbA=";
   };
 
+  cargoHash = "sha256-NQb3SK+GYbXFDoJKQpA2c4oZOw1hTohdWgwu6Yw4/Oo=";
+
   meta = {
     homepage = "http://anttiharju.dev/compare-changes";
     description = "WIP";
