@@ -5,16 +5,19 @@
   nix-update-script,
 }:
 
+let
+  cargoToml = fromTOML (builtins.readFile ./Cargo.toml);
+in
 rustPlatform.buildRustPackage rec {
-  pname = "compare-changes";
-  version = "0.1.5";
-  revision = "6390945d168974c7e3b4ea9c319daf3b07b3bc72";
+  pname = cargoToml.package.name;
+  version = cargoToml.package.version;
+  revision = "c02da6a48664194d98ff2f0b6711054a2a155673";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "compare-changes";
     rev = revision;
-    hash = "sha256-fR7jFV49XeA3kk4/G7iaF7l57U8g2IBSvfGk4Qa/Cb0=";
+    hash = "sha256-yz1yGYbqvqExYA6EEV0JEkQ/mtF2kC2uTMNg36ipbb0=";
   };
 
   cargoLock = {
