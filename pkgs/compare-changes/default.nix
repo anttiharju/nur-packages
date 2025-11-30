@@ -7,14 +7,14 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "compare-changes";
-  version = "0.6.0";
-  revision = "cf89eeb20465ddd645ebda5e1d837f822597ece1";
+  version = "0.6.1";
+  revision = "2f082205ec70bd5b1e8445294b9ac80c334d78b7";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "compare-changes";
     rev = revision;
-    hash = "sha256-OvghJu2Nt9zoEh6S4jQGtsqAff0/N1ADNAPl34Cf8TU=";
+    hash = "sha256-JEIN4VRSdrsyfG4bj9+hHV2lMgK2SJcMF1MTCdb09b0=";
   };
 
   cargoLock = {
