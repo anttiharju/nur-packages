@@ -6,14 +6,14 @@
 
 buildGoModule rec {
   pname = "vmatch";
-  version = "1.0.54";
-  revision = "d88da64f513449ee52fe5c1efb46f67827f027f0";
+  version = "1.0.55";
+  revision = "59e7a36d48ce00d3cfeac949d4e5ac90b3e9dede";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "vmatch";
     rev = revision;
-    hash = "sha256-v3kufsC22qczBwWov7GGnMbEGRDbD6MbOibYmnJcWLI=";
+    hash = "sha256-mSaC/uJ/bhexs8+/ESqhJtx2rh3Gy7iYrib0OQYM1no=";
   };
 
   vendorHash = null;
@@ -23,7 +23,7 @@ buildGoModule rec {
     "-w"
     "-X main.revision=${revision}"
     "-X main.version=${version}"
-    "-X main.time=2025-12-01T16:57:24Z"
+    "-X main.time=2025-12-01T17:37:20Z"
   ];
 
   meta = {
