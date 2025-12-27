@@ -21,6 +21,8 @@ rustPlatform.buildRustPackage rec {
     lockFile = ./Cargo.lock;
   };
 
+  buildFeatures = [ "cli" ];
+
   meta = {
     homepage = "http://anttiharju.dev/compare-changes/";
     description = "For use with find-changes-action";
