@@ -23,13 +23,14 @@ stdenv.mkDerivation (finalAttrs: {
   pname = "zig";
   inherit version;
 
-  src = fetchFromGitea {
-    domain = "codeberg.org";
-    owner = "ziglang";
-    repo = "zig";
-    rev = finalAttrs.version;
-    inherit hash;
-  };
+  src =
+    args.src or (fetchFromGitea {
+      domain = "codeberg.org";
+      owner = "ziglang";
+      repo = "zig";
+      rev = finalAttrs.version;
+      inherit hash;
+    });
 
   patches = args.patches or [ ];
 

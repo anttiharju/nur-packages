@@ -4,6 +4,8 @@
   llvmPackages_18,
   llvmPackages_19,
   llvmPackages_20,
+  llvmPackages_21,
+  fetchFromGitHub,
   zigVersions ? { },
 }:
 let
@@ -28,6 +30,7 @@ let
       version,
       hash,
       llvmPackages,
+      src ? null,
     }@args:
     callPackage ./generic.nix args;
 
@@ -37,3 +40,16 @@ let
   ) versions;
 in
 zigPackages
+// {
+  custom = mkPackage {
+    version = "0.16.0-custom";
+    llvmPackages = llvmPackages_21;
+    hash = ""; # not used since we override src
+    src = fetchFromGitHub {
+      owner = "anttiharju";
+      repo = "zig";
+      rev = "issue_24662";
+      hash = "sha256-wXUIMNf3SZ/7Q4WIP5FS/GWKiTlxRq2oZab2gAL9aw4=";
+    };
+  };
+}
