@@ -12,11 +12,14 @@ jobs:
   tests:
     strategy:
       matrix:
-        nixPath:
-          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
-          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
-          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-25.11.tar.gz
-    runs-on: ubuntu-latest
+        include:
+          - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
+            runner: ubuntu-latest
+          - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
+            runner: ubuntu-latest
+          - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-25.11.tar.gz
+            runner: ubuntu-latest
+    runs-on: ${{ matrix.runner }}
     env:
       # Set this to notify the global nur package registry that changes are
       # available.
