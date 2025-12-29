@@ -41,6 +41,7 @@ let
 in
 zigPackages
 // {
+  recurseForDerivations = true;
   custom = mkPackage {
     version = "0.16.0-custom";
     llvmPackages = llvmPackages_21;
