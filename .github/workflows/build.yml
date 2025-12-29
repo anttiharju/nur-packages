@@ -19,6 +19,8 @@ jobs:
             runner: ubuntu-latest
           - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-25.11.tar.gz
             runner: ubuntu-latest
+          - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-25.11-darwin.tar.gz
+            runner: macos-26
     runs-on: ${{ matrix.runner }}
     env:
       # Set this to notify the global nur package registry that changes are
