@@ -5,7 +5,7 @@
   llvmPackages_19,
   llvmPackages_20,
   llvmPackages_21,
-  fetchFromGitHub,
+  fetchFromGitea,
   zigVersions ? { },
 }:
 let
@@ -46,11 +46,12 @@ zigPackages
     version = "0.16.0-custom";
     llvmPackages = llvmPackages_21;
     hash = ""; # not used since we override src
-    src = fetchFromGitHub {
+    src = fetchFromGitea {
+      domain = "codeberg.org";
       owner = "anttiharju";
       repo = "zig";
-      rev = "issue_24662";
-      hash = "sha256-YBdFNQMdU3Brqd1xJ7VeyihXs7w4BDBDCm6kF9pMWP0=";
+      rev = "github_issue_24662";
+      hash = "sha256-xpPgnQTw78etWA50Y7XrnLzWCGsRNoJqlR0Av+wx1UY=";
     };
   };
 }
