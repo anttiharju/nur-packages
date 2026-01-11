@@ -51,7 +51,7 @@ zigPackages
       owner = "anttiharju";
       repo = "zig";
       rev = "github_issue_24662";
-      hash = "sha256-xpvmMukMDaMPwQglyqEMukx4GYFemxlE0oTIqBbbrXs=";
+      hash = "sha256-tyvS02X9VEv9Z1RL0HWJSbUW/tG088H0wRxeRHT4Nmw=";
     };
   };
 }
