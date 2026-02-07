@@ -9,13 +9,13 @@
 buildGoModule rec {
   pname = "relcheck";
   version = "0.0.0";
-  revision = "cfb773c696e8d0c99fc42e5abb2985560fb4d0b9";
+  revision = "63eb613a867273eeddeca7aa2459fa1481611b6d";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "relcheck";
     rev = revision;
-    hash = "sha256-5rk3G6W3mRRA5l8uTnYv8+YoVVEzTIiuIN0oIwfuTHY=";
+    hash = "sha256-N75WOTsAG3uPqiFA+JWX4f2ZKy6p3ijwoMcRQ6gmaz8=";
   };
 
   vendorHash = null;
@@ -30,9 +30,10 @@ buildGoModule rec {
   ldflags = [
     "-s"
     "-w"
+    "-buildid=nix-${version}"
     "-X main.revision=${revision}"
     "-X main.version=${version}"
-    "-X main.time=2026-02-06T05:37:55Z"
+    "-X main.time=2026-02-07T10:27:45Z"
   ];
 
   meta = {
