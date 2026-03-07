@@ -50,7 +50,7 @@ zigPackages
       domain = "codeberg.org";
       owner = "anttiharju";
       repo = "zig";
-      rev = "github_issue_24662";
+      rev = "master";
       hash = "sha256-tyvS02X9VEv9Z1RL0HWJSbUW/tG088H0wRxeRHT4Nmw=";
     };
   };
