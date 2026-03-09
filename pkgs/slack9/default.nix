@@ -7,14 +7,14 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "slack9";
-  version = "0.2.3";
-  revision = "396e555266e6b483414da2076416eb854880b484";
+  version = "0.3.0";
+  revision = "026f5d38304bb4807dbf4df26ad5e07f20886a1c";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "slack9";
     rev = revision;
-    hash = "sha256-HAGYUw2HHJnpftFljnKb0isgJ8Jzr2zENhU+clkNIuA=";
+    hash = "sha256-95QoG7KtVFv4jUyRZTYzjjImJk3CVJ9IGSFbY/UaOU0=";
   };
 
   cargoLock = {
