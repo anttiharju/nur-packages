@@ -11,6 +11,7 @@ on:
 jobs:
   tests:
     strategy:
+      fail-fast: false
       matrix:
         include:
           - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
