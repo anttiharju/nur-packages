@@ -1,29 +1,12 @@
 {
   lib,
   callPackage,
-  llvmPackages_18,
-  llvmPackages_19,
-  llvmPackages_20,
   llvmPackages_21,
   fetchFromGitea,
   zigVersions ? { },
 }:
 let
-  versions = {
-    "0.13.0" = {
-      llvmPackages = llvmPackages_18;
-      hash = "sha256-5qSiTq+UWGOwjDVZMIrAt2cDKHkyNPBSAEjpRQUByFM=";
-    };
-    "0.14.1" = {
-      llvmPackages = llvmPackages_19;
-      hash = "sha256-DhVJIY/z12PJZdb5j4dnCRb7k1CmeQVOnayYRP8azDI=";
-    };
-    "0.15.2" = {
-      llvmPackages = llvmPackages_20;
-      hash = "sha256-u3pEMcYN71d83MJh14vtzU4DJXnMHu/Jw86d9XvwKE8=";
-    };
-  }
-  // zigVersions;
+  versions = { } // zigVersions;
 
   mkPackage =
     {
