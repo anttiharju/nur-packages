@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage rec {
     lockFile = ./Cargo.lock;
   };
 
-  buildFeatures = [ "cli" ];
+  cargoBuildFlags = [ "--all-features" ];
 
   meta = {
     homepage = "http://anttiharju.dev/compare-changes/";
