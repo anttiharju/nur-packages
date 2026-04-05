@@ -48,10 +48,10 @@ zigPackages
     hash = ""; # not used since we override src
     src = fetchFromGitea {
       domain = "codeberg.org";
-      owner = "anttiharju";
+      owner = "ziglang";
       repo = "zig";
       rev = "master";
-      hash = "sha256-tyvS02X9VEv9Z1RL0HWJSbUW/tG088H0wRxeRHT4Nmw=";
+      hash = "sha256-QUzViYLEjh3kK5F/Dkx9MgvdkRycnZAy1LuT67RW/28=";
     };
   };
 }
