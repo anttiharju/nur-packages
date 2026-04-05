@@ -32,7 +32,7 @@ let
       llvmPackages,
       src ? null,
     }@args:
-    callPackage ./generic.nix args;
+    callPackage ./generic.nix (args // { inherit lib; });
 
   zigPackages = lib.mapAttrs' (
     version: args:
