@@ -2,20 +2,20 @@
   lib,
   buildGoModule,
   fetchFromGitHub,
-  git,
+  gitMinimal,
   makeWrapper,
 }:
 
 buildGoModule rec {
   pname = "relcheck";
   version = "0.0.0";
-  revision = "63eb613a867273eeddeca7aa2459fa1481611b6d";
+  revision = "e632ce3c54093eb599e36eeb94ba64c488208952";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "relcheck";
     rev = revision;
-    hash = "sha256-N75WOTsAG3uPqiFA+JWX4f2ZKy6p3ijwoMcRQ6gmaz8=";
+    hash = "sha256-H/vC906IIyttJmSZQr/cTT1gRJ88rnilBe9IOBIV2G4=";
   };
 
   vendorHash = null;
@@ -24,7 +24,7 @@ buildGoModule rec {
 
   postInstall = ''
     wrapProgram "$out/bin/relcheck" \
-      --prefix PATH : ${lib.makeBinPath [ git ]}
+      --prefix PATH : ${lib.makeBinPath [ gitMinimal ]}
   '';
 
   ldflags = [
@@ -33,7 +33,7 @@ buildGoModule rec {
     "-buildid=nix-${version}"
     "-X main.revision=${revision}"
     "-X main.version=${version}"
-    "-X main.time=2026-02-07T10:27:45Z"
+    "-X main.time=2026-04-06T15:44:01Z"
   ];
 
   meta = {
