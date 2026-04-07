@@ -2,6 +2,8 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
+  gitMinimal,
+  makeWrapper,
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
@@ -20,6 +22,13 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   postPatch = ''
     substituteInPlace Cargo.toml --replace-fail 'version = "0.0.0-git"' 'version = "${finalAttrs.version}"'
+  '';
+
+  nativeBuildInputs = [ makeWrapper ];
+
+  postInstall = ''
+    wrapProgram "$out/bin/action-validator" \
+      --prefix PATH : ${lib.makeBinPath [ gitMinimal ]}
   '';
 
   doCheck = false;
