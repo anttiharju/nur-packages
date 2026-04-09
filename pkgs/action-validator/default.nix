@@ -13,8 +13,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "mpalmer";
     repo = "action-validator";
-    rev = "4249884ff1561279ceeab1f6a624eb0be52fd6ec";
-    hash = "sha256-ZOvMY0UeYkwn9gz28hRSVMzM/LL3h5aIPE/Z1NVmGPE=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-E0kqEzqw902Wg7QQNzOrtHQO9riSmAvDNcWIP3XmLSY=";
     fetchSubmodules = true;
   };
 
@@ -31,7 +31,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
       --prefix PATH : ${lib.makeBinPath [ gitMinimal ]}
   '';
 
-  doCheck = false;
+  doCheck = false; # tests assume they would run in a git repository, and with Nix they do not
 
   meta = {
     description = "Tool to validate GitHub Action and Workflow YAML files";
