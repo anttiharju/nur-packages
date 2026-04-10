@@ -2,6 +2,7 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
+  nix-update-script,
   gitMinimal,
   makeWrapper,
 }:
@@ -16,9 +17,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-E0kqEzqw902Wg7QQNzOrtHQO9riSmAvDNcWIP3XmLSY=";
     fetchSubmodules = true;
+    leaveDotGit = true;
   };
 
   cargoHash = "sha256-F8bJclpDpOdVET/dSIUYyP4DFcnhJDR2CV8poZtykko=";
+
+  passthru.updateScript = nix-update-script { };
 
   postPatch = ''
     substituteInPlace Cargo.toml --replace-fail 'version = "0.0.0-git"' 'version = "${finalAttrs.version}"'
@@ -26,12 +30,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   nativeBuildInputs = [ makeWrapper ];
 
+  nativeCheckInputs = [ gitMinimal ];
+
   postInstall = ''
     wrapProgram "$out/bin/action-validator" \
       --prefix PATH : ${lib.makeBinPath [ gitMinimal ]}
   '';
-
-  doCheck = false; # tests assume they would run in a git repository, and with Nix they do not
 
   meta = {
     description = "Tool to validate GitHub Action and Workflow YAML files";
