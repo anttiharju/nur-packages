@@ -33,8 +33,8 @@ zigPackages
       domain = "codeberg.org";
       owner = "ziglang";
       repo = "zig";
-      rev = "master";
-      hash = "sha256-QUzViYLEjh3kK5F/Dkx9MgvdkRycnZAy1LuT67RW/28=";
+      rev = "fa9caeba1b39daccf9096c5f269b605974ce2496";
+      hash = "sha256-agKNP0PN12WAPkBWmtHA8Myu0chYzJmY/6f8oeNnV4Y=";
     };
   };
 }
