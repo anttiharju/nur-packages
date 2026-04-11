@@ -16,11 +16,7 @@ jobs:
         include:
           - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
             runner: ubuntu-latest
-          - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
-            runner: ubuntu-latest
-          - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-25.11.tar.gz
-            runner: ubuntu-latest
-          - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-25.11-darwin.tar.gz
+          - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
             runner: macos-26
     runs-on: ${{ matrix.runner }}
     env:
