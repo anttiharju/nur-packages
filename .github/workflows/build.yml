@@ -10,15 +10,16 @@ on:
   workflow_dispatch:
 jobs:
   tests:
+    name: ${{ matrix.nixpkgs }} ${{ matrix.runner }}
     strategy:
       fail-fast: false
       matrix:
         include:
-          - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
+          - nixpkgs: unstable
             runner: ubuntu-latest
-          - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz
+          - nixpkgs: unstable
             runner: macos-26
-          - nixPath: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-25.11-darwin.tar.gz
+          - nixpkgs: 25.11-darwin
             runner: macos-26
     runs-on: ${{ matrix.runner }}
     env:
@@ -45,7 +46,7 @@ jobs:
       - name: Install nix
         uses: cachix/install-nix-action@v31
         with:
-          nix_path: "${{ matrix.nixPath }}"
+          nix_path: "nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixpkgs-${{ matrix.nixpkgs }}.tar.gz"
           extra_nix_config: |
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
