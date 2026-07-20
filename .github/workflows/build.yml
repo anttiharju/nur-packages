@@ -19,7 +19,7 @@ jobs:
             runner: ubuntu-latest
           - nixpkgs: unstable
             runner: macos-26
-          - nixpkgs: 25.11-darwin
+          - nixpkgs: 26.05-darwin
             runner: macos-26
     runs-on: ${{ matrix.runner }}
     env:
