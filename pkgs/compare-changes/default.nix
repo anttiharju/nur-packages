@@ -2,7 +2,6 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
-  nix-update-script,
 }:
 
 rustPlatform.buildRustPackage rec {
