@@ -7,14 +7,14 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "compare-changes";
-  version = "0.9.1";
-  revision = "72a8cb51bb2896672386fb011111abbbe4e802a3";
+  version = "0.9.2";
+  revision = "7052e81cc0146b8626354bda6565e24d8515deac";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "compare-changes";
     rev = revision;
-    hash = "sha256-it6dnyayboL/q68TOeqgOwcmps43ibjB0WIBtzcOP/I=";
+    hash = "sha256-m7/bah05ZiALBVJozZjECWv0Z1M4Po7ZbqO0aLpFJ1U=";
   };
 
   cargoLock = {
@@ -22,6 +22,13 @@ rustPlatform.buildRustPackage rec {
   };
 
   cargoBuildFlags = [ "--all-features" ];
+
+  postPatch = ''
+    substituteInPlace Cargo.lock \
+      --replace-fail \
+        $'name = "compare-changes"\nversion = "0.0.0"' \
+        $'name = "compare-changes"\nversion = "${version}"'
+  '';
 
   meta = {
     homepage = "http://anttiharju.dev/compare-changes/";
