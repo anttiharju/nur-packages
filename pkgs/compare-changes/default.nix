@@ -24,7 +24,7 @@ rustPlatform.buildRustPackage rec {
   cargoBuildFlags = [ "--all-features" ];
 
   postPatch = ''
-    substituteInPlace Cargo.lock \
+    substituteInPlace Cargo.lock "$cargoDepsCopy/Cargo.lock" \
       --replace-fail \
         $'name = "compare-changes"\nversion = "0.0.0"' \
         $'name = "compare-changes"\nversion = "${version}"'
