@@ -27,6 +27,9 @@ rustPlatform.buildRustPackage rec {
     substituteInPlace Cargo.toml --replace-fail \
       $'[package]\n' \
       $'[package]\nversion = "${version}"\n'
+    substituteInPlace Cargo.lock --replace-fail \
+      $'name = "compare-changes"\nversion = "0.0.0"' \
+      $'name = "compare-changes"\nversion = "${version}"'
   '';
 
   meta = {
