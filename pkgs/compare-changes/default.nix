@@ -6,14 +6,14 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "compare-changes";
-  version = "0.12.3";
-  revision = "383ac55ce97671f3ed08f310a08a43bb013b71d4";
+  version = "0.12.4";
+  revision = "6f739c25aeddcad60fe08c64920a7e07b6119459";
 
   src = fetchFromGitHub {
     owner = "anttiharju";
     repo = "compare-changes";
     rev = revision;
-    hash = "sha256-0fmase7Kr/6Fi28FzSXBPdVrJTJLzlmjAN1DEfK+9fs=";
+    hash = "sha256-cFgc5QGX1NsOqskUtad2rZbkb+7jw18fBHOSyWvM9og=";
   };
 
   cargoLock = {
@@ -33,7 +33,7 @@ rustPlatform.buildRustPackage rec {
 
   meta = {
     homepage = "https://anttiharju.dev/compare-changes";
-    description = "For use with find-changes-action";
+    description = "Lib & CLI for GitHub workflow paths filter syntax";
     changelog = "https://github.com/anttiharju/compare-changes/releases/tag/v${version}";
     license = lib.licenses.mit;
     maintainers = with lib.maintainers; [ anttiharju ];
